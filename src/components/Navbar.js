@@ -4,10 +4,10 @@ import Image from "next/image";
 import logo from "../../public/logo-removebg-preview.png";
 import { Button, Navbar } from "flowbite-react";
 import { useRouter } from "next/navigation";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
-  const { isAuthenticated, user } = useSelector(
+  const { isAuthenticated } = useSelector(
     (state) => state.user.isAuthenticated
   );
   const router = useRouter();
@@ -21,7 +21,7 @@ const NavBar = () => {
       </Navbar.Brand>
       <div className="flex md:order-2">
         {!isAuthenticated ? (
-          <Button onClick={(e) => router.push("/auth")}>Get started</Button>
+          <Button onClick={() => router.push("/auth")}>Get started</Button>
         ) : (
           <Button>Logout</Button>
         )}
