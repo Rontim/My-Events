@@ -16,7 +16,7 @@ const EventPost = ({
     return initials.substring(0, 2); // Limit to a maximum of 2 characters
   }
   const userNameInitials = getInitials(userName);
-  const date = new Date("2023-10-04");
+  const date = new Date(eventDate);
 
   const month = date.getMonth();
   const months = [
