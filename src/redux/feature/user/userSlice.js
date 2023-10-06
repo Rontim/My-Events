@@ -72,8 +72,10 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     checkAuthentication: (state) => {
-      if (localStorage.getItem("access")) {
-        state.isAuthenticated = true;
+      if (typeof window !== "undefined") {
+        if (localStorage.getItem("access")) {
+          state.isAuthenticated = true;
+        }
       }
     },
   },

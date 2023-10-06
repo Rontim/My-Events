@@ -123,7 +123,7 @@ const LeftSideBar = () => {
             className="flex items-center max-[960px]:w-10 max-[960px]:h-10 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-purple-900"
           >
             <svg
-              class="w-[29px] h-[29px] text-gray-800 dark:text-white"
+              className="w-[29px] h-[29px] text-gray-800 dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -131,9 +131,9 @@ const LeftSideBar = () => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M9 1v16M1 9h16"
               />
             </svg>
