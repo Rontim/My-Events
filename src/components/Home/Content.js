@@ -1,5 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
+import officeLong2 from "../../../public/office-long-2.png";
+import officeLong1 from "../../../public/office-long-1.png";
 
 export default function Content() {
   return (
@@ -27,12 +29,12 @@ export default function Content() {
         <div className="grid grid-cols-2 gap-4 mt-8">
           <Image
             className="w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
+            src={officeLong2}
             alt="office content 1"
           />
           <Image
             className="mt-4 w-full lg:mt-10 rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
+            src={officeLong1}
             alt="office content 2"
           />
         </div>

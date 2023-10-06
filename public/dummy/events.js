@@ -1,0 +1,73 @@
+export const events = [
+  {
+    id: 1,
+    title: "Summer Music Fest 2023",
+    date: "2023-07-15",
+    location: "City Park Amphitheater",
+    description: "A weekend of live music from various genres.",
+  },
+  {
+    id: 2,
+    title: "Gallery Showcase: Emerging Artists",
+    date: "2023-08-05",
+    location: "Downtown Art Gallery",
+    description: "Featuring stunning artworks by up-and-coming talents.",
+  },
+  {
+    id: 3,
+    title: "Tech Summit 2023",
+    date: "2023-09-20",
+    location: "Tech Convention Center",
+    description: "Explore the latest tech trends and innovations.",
+  },
+  {
+    id: 4,
+    title: "Taste of the World",
+    date: "2023-06-30",
+    location: "City Park",
+    description: "Savor international cuisines and street food delights.",
+  },
+  {
+    id: 5,
+    title: "City Marathon Challenge",
+    date: "2023-05-12",
+    location: "City Streets",
+    description: "Run through the city streets in this exciting marathon.",
+  },
+  {
+    id: 6,
+    title: "Indie Film Festival",
+    date: "2023-10-10",
+    location: "Cinema Plaza",
+    description: "Watch unique and independent films from around the world.",
+  },
+  {
+    id: 7,
+    title: "Annual Charity Ball",
+    date: "2023-12-03",
+    location: "Grand Ballroom",
+    description:
+      "Raise funds for a noble cause while enjoying a glamorous evening.",
+  },
+  {
+    id: 8,
+    title: "Laugh Riot Stand-up",
+    date: "2023-04-18",
+    location: "Comedy Club",
+    description: "Get ready for a night of hilarious stand-up comedy.",
+  },
+  {
+    id: 9,
+    title: "Zen Escape Yoga Retreat",
+    date: "2023-09-08",
+    location: "Tranquil Retreat Center",
+    description: "Relax, rejuvenate, and find your inner peace.",
+  },
+  {
+    id: 10,
+    title: "Digital Marketing Masterclass",
+    date: "2023-07-25",
+    location: "Marketing Institute",
+    description: "Learn the secrets of effective digital marketing.",
+  },
+];
