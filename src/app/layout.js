@@ -7,6 +7,7 @@ import { initFlowbite } from "flowbite";
 const Layout = ({ children }) => {
   useEffect(() => {
     initFlowbite();
+    return () => {};
   });
 
   return (

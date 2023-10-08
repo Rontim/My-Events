@@ -39,7 +39,7 @@ const EventPost = ({
     <div className="bg-white dark:bg-transparent border-b border-black dark:border-black p-4 shadow-md mt-4">
       <div className="flex flex-col lg:flex-row items-center justify-between mb-3">
         <div className="flex items-center flex-col lg:flex-row">
-          {userImage ? ( // Check if userImage is available
+          {userImage ? (
             <Image
               src={userImage}
               alt={`User Image for ${userName}`}
@@ -58,15 +58,19 @@ const EventPost = ({
           <p className="text-xs text-white ">{eventLocation}</p>
         </div>
       </div>
-      <p className="text-sm dark:text-white lg:text-center">{content}</p>
+      <p className="text-sm dark:text-white lg:text-left">{content}</p>
+
       {eventImg && (
-        <Image
-          src={eventImg}
-          alt={`Image for ${eventName}`}
-          className="mt-4 rounded-lg max-w-full h-auto"
-        />
+        <div className="overflow-hidden mt-4 rounded-[15px] max-w-full h-auto border dark:border-black">
+          <Image
+            src={eventImg}
+            alt={`Image for ${eventName}`}
+            className="hover:scale-105  ease-in duration-1000 transition-transform"
+          />
+        </div>
       )}
-      <div className="mt-4">
+
+      <div className="mt-4 flex flex-1 justify-around">
         <button className="mr-4 text-sm text-gray-500 hover:text-blue-500">
           RSVP
         </button>

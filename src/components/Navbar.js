@@ -117,19 +117,31 @@ const NavBar = () => {
             </div>
             <div className="py-6">
               {isAuthenticated ? (
-                <a
-                  href="/auth"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-[#545863]"
-                >
-                  Log out
-                </a>
+                <div className="flex flex-1 space-x-4 items-center">
+                  <a href="/" className="text-sm font-semibold leading-6">
+                    Log out <span aria-hidden="true">&rarr;</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => router.push("/event")}
+                    className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:shadow focus:shadow-[#c722c7] font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                  >
+                    Explore Events
+                  </button>
+                </div>
               ) : (
-                <a
-                  href="/auth"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-[#545863]"
-                >
-                  Log in
-                </a>
+                <div className="flex flex-1 space-x-4 items-center">
+                  <a href="/auth" className="text-sm font-semibold leading-6">
+                    Log in <span aria-hidden="true">&rarr;</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => router.push("/auth")}
+                    className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:shadow focus:shadow-[#c722c7] font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                  >
+                    Get Started
+                  </button>
+                </div>
               )}
             </div>
           </div>

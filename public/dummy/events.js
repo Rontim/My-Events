@@ -1,3 +1,12 @@
+import {
+  artfest,
+  ball,
+  concert,
+  foodfest,
+  marathon,
+  marketing,
+} from "../eventPhotos";
+
 export const events = [
   {
     id: 1,
@@ -5,6 +14,7 @@ export const events = [
     date: "2023-07-15",
     location: "City Park Amphitheater",
     description: "A weekend of live music from various genres.",
+    image: concert,
   },
   {
     id: 2,
@@ -12,6 +22,7 @@ export const events = [
     date: "2023-08-05",
     location: "Downtown Art Gallery",
     description: "Featuring stunning artworks by up-and-coming talents.",
+    image: "",
   },
   {
     id: 3,
@@ -19,6 +30,7 @@ export const events = [
     date: "2023-09-20",
     location: "Tech Convention Center",
     description: "Explore the latest tech trends and innovations.",
+    image: "",
   },
   {
     id: 4,
@@ -26,6 +38,7 @@ export const events = [
     date: "2023-06-30",
     location: "City Park",
     description: "Savor international cuisines and street food delights.",
+    image: foodfest,
   },
   {
     id: 5,
@@ -33,6 +46,7 @@ export const events = [
     date: "2023-05-12",
     location: "City Streets",
     description: "Run through the city streets in this exciting marathon.",
+    image: marathon,
   },
   {
     id: 6,
@@ -40,6 +54,7 @@ export const events = [
     date: "2023-10-10",
     location: "Cinema Plaza",
     description: "Watch unique and independent films from around the world.",
+    image: artfest,
   },
   {
     id: 7,
@@ -48,6 +63,7 @@ export const events = [
     location: "Grand Ballroom",
     description:
       "Raise funds for a noble cause while enjoying a glamorous evening.",
+    image: ball,
   },
   {
     id: 8,
@@ -55,6 +71,7 @@ export const events = [
     date: "2023-04-18",
     location: "Comedy Club",
     description: "Get ready for a night of hilarious stand-up comedy.",
+    image: "",
   },
   {
     id: 9,
@@ -62,6 +79,7 @@ export const events = [
     date: "2023-09-08",
     location: "Tranquil Retreat Center",
     description: "Relax, rejuvenate, and find your inner peace.",
+    image: "",
   },
   {
     id: 10,
@@ -69,5 +87,6 @@ export const events = [
     date: "2023-07-25",
     location: "Marketing Institute",
     description: "Learn the secrets of effective digital marketing.",
+    image: marketing,
   },
 ];

@@ -6,15 +6,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { login } from "@/redux/feature/user/userSlice";
+import { checkAuth } from "@/redux/feature/user/userSlice";
 
 export default function Login() {
+  const dispatch = useDispatch();
+  dispatch(checkAuth());
   const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const dispatch = useDispatch();
   const { isAuthenticated, loading } = useSelector((state) => state.user);
 
   const { email, password } = formData;
@@ -30,7 +32,8 @@ export default function Login() {
     return setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  if (isAuthenticated) return router.push("/");
+  console.log(isAuthenticated);
+  if (isAuthenticated) return router.back();
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
@@ -50,7 +53,7 @@ export default function Login() {
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
-                  htmlFor="email"
+                  htmlhtmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Your email
@@ -68,7 +71,7 @@ export default function Login() {
               </div>
               <div>
                 <label
-                  htmlFor="password"
+                  htmlhtmlFor="password"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Password
@@ -97,7 +100,7 @@ export default function Login() {
                   </div>
                   <div className="ml-3 text-sm">
                     <label
-                      htmlFor="remember"
+                      htmlhtmlFor="remember"
                       className="text-gray-500 dark:text-gray-300"
                     >
                       Remember me

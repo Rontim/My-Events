@@ -61,6 +61,35 @@ export const login = createAsyncThunk(
   }
 );
 
+export const checkAuth = createAsyncThunk(
+  "user/verify",
+  async (_, thunkAPI) => {
+    if (typeof window !== "undefined") {
+      if (localStorage.getItem("access")) {
+        const body = JSON.stringify({ token: localStorage.getItem("access") });
+
+        try {
+          const res = await fetch("http://127.0.0.1:8000/auth/jwt/verify/", {
+            method: "POST",
+            body,
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          });
+
+          if (res.status == 200) {
+            const { dispatch } = thunkAPI;
+            dispatch(loaduser);
+          }
+        } catch (err) {
+          return thunkAPI.rejectWithValue(err.response.data);
+        }
+      }
+    }
+  }
+);
+
 const initialState = {
   isAuthenticated: false,
   loading: false,
@@ -70,15 +99,7 @@ const initialState = {
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {
-    checkAuthentication: (state) => {
-      if (typeof window !== "undefined") {
-        if (localStorage.getItem("access")) {
-          state.isAuthenticated = true;
-        }
-      }
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, (state) => {
@@ -100,9 +121,18 @@ const userSlice = createSlice({
       })
       .addCase(loaduser.rejected, (state) => {
         state.loading = false;
+      })
+      .addCase(checkAuth.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(checkAuth.fulfilled, (state) => {
+        state.loading = false;
+        state.isAuthenticated = true;
+      })
+      .addCase(checkAuth.rejected, (state) => {
+        state.loading = false;
       });
   },
 });
 
-export const { checkAuthentication } = userSlice.actions;
 export default userSlice.reducer;

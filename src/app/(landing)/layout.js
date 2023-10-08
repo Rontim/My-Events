@@ -3,11 +3,11 @@
 import RootFooter from "@/components/Footer";
 import NavBar from "@/components/Navbar";
 import { useDispatch } from "react-redux";
-import { checkAuthentication } from "@/redux/feature/user/userSlice";
+import { checkAuth } from "@/redux/feature/user/userSlice";
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
-  dispatch(checkAuthentication());
+  dispatch(checkAuth());
 
   return (
     <>

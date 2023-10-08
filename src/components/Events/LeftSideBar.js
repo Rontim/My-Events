@@ -1,20 +1,14 @@
+"use client";
+
 import React from "react";
-import Image from "next/image";
-import logo from "../../../public/logo-removebg-preview.png";
 
 const LeftSideBar = () => {
   return (
     <aside
-      className="h-full pl-5 pt-4 dark:bg-gray-900 overflow-y-auto  max-[960px]:align-middle max-[960px]:pl-0 max-[960px]:py-16 max-[960px]:pr-1 max-[600px]:hidden"
+      className="fixed left-0 top-0 w-64 no-scrollbar h-screen pl-5 pt-24 dark:bg-gray-900 overflow-y-auto max-[960px]:pl-0 max-[960px]:py-16 max-[960px]:w-36  max-[600px]:hidden"
       aria-label="Sidebar"
     >
-      <div className="flex lg:flex-1 max-[960px]:hidden">
-        <a href="#" className="-m-1.5 p-1.5">
-          <span className="sr-only">My Events</span>
-          <Image className="h-16 mb-0 mr-3 w-28" src={logo} alt="" />
-        </a>
-      </div>
-      <ul className="space-y-6 ps-6 font-medium max-[960px]:space-y-8">
+      <ul className="space-y-6 ps-6 font-medium max-[960px]:space-y-8 max-[960px]:pt-12 ">
         <li>
           <a
             href="/event"
@@ -146,7 +140,7 @@ const LeftSideBar = () => {
 
       <div
         id="dropdown-cta"
-        className="p-4 mt-6 rounded-lg space-x-1 bg-blue-50 dark:bg-blue-900 max-[960px]:hidden"
+        className="p-4 ml-2 w-[75%] mt-6 rounded-lg space-x-1 bg-blue-50 dark:bg-blue-900 max-[960px]:hidden"
         role="alert"
       >
         <div className="flex items-center mb-3">
