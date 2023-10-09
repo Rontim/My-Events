@@ -3,8 +3,12 @@
 import EventNavBar from "@/components/Events/EventNavBar";
 import LeftSideBar from "@/components/Events/LeftSideBar";
 import RightSideBar from "@/components/Events/RightSideBar";
+import { useDispatch } from "react-redux";
+import { checkAuth } from "@/redux/feature/user/userSlice";
 
-export default function DashboardLayout({ children }) {
+const Layout = ({ children }) => {
+  const dispatch = useDispatch();
+  dispatch(checkAuth());
   return (
     <section className="w-full mt-0 justify-stretch">
       <EventNavBar />
@@ -15,4 +19,6 @@ export default function DashboardLayout({ children }) {
       </main>
     </section>
   );
-}
+};
+
+export default Layout;

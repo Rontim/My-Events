@@ -25,14 +25,12 @@ export default function Login() {
     e.preventDefault();
     console.log(formData);
     dispatch(login({ email, password }));
-    console.log(isAuthenticated);
   };
 
   const handleChange = (e) => {
     return setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  console.log(isAuthenticated);
   if (isAuthenticated) return router.back();
 
   return (
@@ -53,7 +51,7 @@ export default function Login() {
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
-                  htmlhtmlFor="email"
+                  htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Your email
@@ -71,7 +69,7 @@ export default function Login() {
               </div>
               <div>
                 <label
-                  htmlhtmlFor="password"
+                  htmlFor="password"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Password
@@ -100,7 +98,7 @@ export default function Login() {
                   </div>
                   <div className="ml-3 text-sm">
                     <label
-                      htmlhtmlFor="remember"
+                      htmlFor="remember"
                       className="text-gray-500 dark:text-gray-300"
                     >
                       Remember me
@@ -114,7 +112,7 @@ export default function Login() {
                   Forgot password?
                 </a>
               </div>
-              {!loading ? (
+              {loading ? (
                 <button
                   type="submit"
                   className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-0 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700"

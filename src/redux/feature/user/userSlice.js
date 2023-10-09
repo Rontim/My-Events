@@ -80,11 +80,13 @@ export const checkAuth = createAsyncThunk(
 
           if (res.status == 200) {
             const { dispatch } = thunkAPI;
-            dispatch(loaduser);
+            dispatch(loaduser());
           }
         } catch (err) {
           return thunkAPI.rejectWithValue(err.response.data);
         }
+      } else {
+        return thunkAPI.rejectWithValue();
       }
     }
   }
@@ -99,7 +101,14 @@ const initialState = {
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      if (typeof window !== "undefined") {
+        localStorage.clear();
+        state.isAuthenticated = false;
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, (state) => {
@@ -131,8 +140,10 @@ const userSlice = createSlice({
       })
       .addCase(checkAuth.rejected, (state) => {
         state.loading = false;
+        state.isAuthenticated = false;
       });
   },
 });
 
+export const { logout } = userSlice.actions;
 export default userSlice.reducer;

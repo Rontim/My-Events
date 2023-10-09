@@ -5,20 +5,32 @@ import logo from "../../public/logo-removebg-preview.png";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, Popover } from "@headlessui/react";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import { logout } from "@/redux/feature/user/userSlice";
 import Link from "next/link";
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isAuthenticated } = useSelector((state) => state.user);
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  console.log(user);
+
+  const handleClick = () => {
+    dispatch(logout());
+    router.refresh();
+  };
 
   const AuthButtons = () => (
     <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4 items-center">
-      <a href="/" className="text-sm font-semibold leading-6">
+      <button
+        onClick={handleClick}
+        className="focus:ring-0 focus:outline-none hover:border border-white  font-semibold rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 leading-6"
+      >
         Log out <span aria-hidden="true">&rarr;</span>
-      </a>
+      </button>
       <button
         type="button"
         onClick={() => router.push("/event")}
@@ -31,7 +43,10 @@ const NavBar = () => {
 
   const GuestButtons = () => (
     <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4 items-center">
-      <a href="/auth" className="text-sm font-semibold leading-6">
+      <a
+        href="/auth"
+        className="text-sm font-semibold leading-6 rounded-lg px-5 py-2.5 text-center mr-2 mb-2"
+      >
         Log in <span aria-hidden="true">&rarr;</span>
       </a>
       <button
