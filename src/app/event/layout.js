@@ -1,12 +1,24 @@
+"user client";
+
+import EventNavBar from "@/components/Events/EventNavBar";
 import LeftSideBar from "@/components/Events/LeftSideBar";
 import RightSideBar from "@/components/Events/RightSideBar";
+import { useDispatch } from "react-redux";
+import { checkAuth } from "@/redux/feature/user/userSlice";
 
-export default function DashboardLayout({ children }) {
+const Layout = ({ children }) => {
+  const dispatch = useDispatch();
+  dispatch(checkAuth());
   return (
-    <section className="grid grid-flow-col grid-cols-[1.5fr_2fr_1.5fr] w-full mt-0 gap-1 justify-stretch">
+    <section className="w-full mt-0 justify-stretch">
+      <EventNavBar />
       <LeftSideBar />
-      <main className="dark:bg-gray-900">{children}</main>
-      <RightSideBar />
+      <main className="dark:bg-gray-900 p-4 min-[960px]:ml-64 min-[960px]:mr-72 max-[960px]:ml-36 max-[600px]:ml-0 h-auto pt-20 max-[600px]:pt-24">
+        {children}
+        <RightSideBar />
+      </main>
     </section>
   );
-}
+};
+
+export default Layout;

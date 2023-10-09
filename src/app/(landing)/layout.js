@@ -2,8 +2,13 @@
 
 import RootFooter from "@/components/Footer";
 import NavBar from "@/components/Navbar";
+import { useDispatch } from "react-redux";
+import { checkAuth } from "@/redux/feature/user/userSlice";
 
-const layout = ({ children }) => {
+const Layout = ({ children }) => {
+  const dispatch = useDispatch();
+  dispatch(checkAuth());
+
   return (
     <>
       <NavBar />
@@ -13,4 +18,4 @@ const layout = ({ children }) => {
   );
 };
 
-export default layout;
+export default Layout;
