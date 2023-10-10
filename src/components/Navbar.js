@@ -16,8 +16,6 @@ const NavBar = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  console.log(user);
-
   const handleClick = () => {
     dispatch(logout());
     router.refresh();
@@ -27,7 +25,7 @@ const NavBar = () => {
     <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4 items-center">
       <button
         onClick={handleClick}
-        className="focus:ring-0 focus:outline-none hover:border border-white  font-semibold rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 leading-6"
+        className="focus:ring-0 focus:outline-none hover:border hover:border-white  font-semibold rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 leading-6"
       >
         Log out <span aria-hidden="true">&rarr;</span>
       </button>
@@ -43,15 +41,15 @@ const NavBar = () => {
 
   const GuestButtons = () => (
     <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4 items-center">
-      <a
-        href="/auth"
+      <Link
+        href="/auth/login"
         className="text-sm font-semibold leading-6 rounded-lg px-5 py-2.5 text-center mr-2 mb-2"
       >
         Log in <span aria-hidden="true">&rarr;</span>
-      </a>
+      </Link>
       <button
         type="button"
-        onClick={() => router.push("/auth")}
+        onClick={() => router.push("/auth/register")}
         className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:shadow focus:shadow-[#c722c7] font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
       >
         Get Started
@@ -66,10 +64,10 @@ const NavBar = () => {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">My Events</span>
             <Image className="h-16 mb-0 mr-3 w-28" src={logo} alt="" />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -102,10 +100,10 @@ const NavBar = () => {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">My Events</span>
               <Image className="h-16 mb-0 mr-3 w-28" src={logo} alt="" />
-            </a>
+            </Link>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -133,9 +131,12 @@ const NavBar = () => {
             <div className="py-6">
               {isAuthenticated ? (
                 <div className="flex flex-1 space-x-4 items-center">
-                  <a href="/" className="text-sm font-semibold leading-6">
+                  <button
+                    onClick={handleClick}
+                    className="focus:ring-0 focus:outline-none hover:border hover:border-white  font-semibold rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 leading-6"
+                  >
                     Log out <span aria-hidden="true">&rarr;</span>
-                  </a>
+                  </button>
                   <button
                     type="button"
                     onClick={() => router.push("/event")}
@@ -146,12 +147,15 @@ const NavBar = () => {
                 </div>
               ) : (
                 <div className="flex flex-1 space-x-4 items-center">
-                  <a href="/auth" className="text-sm font-semibold leading-6">
+                  <Link
+                    href="/auth/login"
+                    className="text-sm font-semibold leading-6"
+                  >
                     Log in <span aria-hidden="true">&rarr;</span>
-                  </a>
+                  </Link>
                   <button
                     type="button"
-                    onClick={() => router.push("/auth")}
+                    onClick={() => router.push("/auth/register")}
                     className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:shadow focus:shadow-[#c722c7] font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                   >
                     Get Started

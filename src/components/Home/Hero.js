@@ -2,6 +2,7 @@
 
 import hero from "@/../public/hero.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -19,7 +20,7 @@ const Hero = () => {
             covered. Join us and experience the ease of events like never
             before.
           </p>
-          <a
+          <Link
             href="#"
             className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
           >
@@ -36,13 +37,13 @@ const Hero = () => {
                 clipRule="evenodd"
               ></path>
             </svg>
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
           >
             Speak to Us
-          </a>
+          </Link>
         </div>
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
           <Image src={hero} alt="mockup" />

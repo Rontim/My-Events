@@ -1,4 +1,4 @@
-"user client";
+"use client";
 
 import EventNavBar from "@/components/Events/EventNavBar";
 import LeftSideBar from "@/components/Events/LeftSideBar";

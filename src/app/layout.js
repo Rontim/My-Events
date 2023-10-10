@@ -1,4 +1,5 @@
 "use client";
+
 import Providers from "@/redux/provider";
 import "./globals.css";
 import { useEffect } from "react";
