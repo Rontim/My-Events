@@ -12,9 +12,7 @@ import { useRouter } from "next/navigation";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const { isAuthenticated, loading, error } = useSelector(
-    (state) => state.user,
-  );
+  const { isAuthenticated } = useSelector((state) => state.user);
   const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",

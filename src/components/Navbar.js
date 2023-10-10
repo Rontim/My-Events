@@ -12,7 +12,7 @@ import Link from "next/link";
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated } = useSelector((state) => state.user);
   const router = useRouter();
   const dispatch = useDispatch();
 
