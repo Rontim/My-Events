@@ -15,7 +15,6 @@ export const loaduser = createAsyncThunk("user/load", async (_, thunkAPI) => {
     const data = await res.json();
 
     if (res.status === 200) {
-      console.log(data);
       return data;
     } else {
       return thunkAPI.rejectWithValue(data);
@@ -60,7 +59,7 @@ export const login = createAsyncThunk(
     } catch (err) {
       return thunkAPI.rejectWithValue(err);
     }
-  },
+  }
 );
 
 export const checkAuth = createAsyncThunk(
@@ -71,7 +70,7 @@ export const checkAuth = createAsyncThunk(
         const body = JSON.stringify({ token: localStorage.getItem("access") });
 
         try {
-          const res = await fetch("http://127.0.0.1:8000/auth/jwt/verify/", {
+          const res = await fetch(`http://127.0.0.1:8000/auth/jwt/verify/`, {
             method: "POST",
             body,
             headers: {
@@ -92,7 +91,7 @@ export const checkAuth = createAsyncThunk(
         return thunkAPI.rejectWithValue("No access token");
       }
     }
-  },
+  }
 );
 
 const initialState = {

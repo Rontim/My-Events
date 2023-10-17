@@ -65,7 +65,7 @@ const EventPost = ({
           <Image
             src={eventImg}
             alt={`Image for ${eventName}`}
-            className="hover:scale-105  ease-in duration-1000 transition-transform"
+            className=""
           />
         </div>
       )}

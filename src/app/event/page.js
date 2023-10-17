@@ -18,7 +18,7 @@ export default function Event() {
 
   return (
     <div className="mb-0 border-x border-black dark:border-black">
-      <ul className="flex flex-col space-y-0 mt-0 scrollb">{eventsList}</ul>
+      <ul className="flex flex-col space-y-0 mt-0">{eventsList}</ul>
     </div>
   );
 }

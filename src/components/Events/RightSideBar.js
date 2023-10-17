@@ -4,7 +4,7 @@ import avatar from "../../../public/avatar.jpg";
 
 const RightSideBar = () => {
   return (
-    <aside className="h-full pb-32 w-72 dark:bg-gray-900 overflow-y-auto no-scrollbar max-[600px]:hidden pt-24 p-4 space-y-4 fixed z-20 top-[0] right-0">
+    <aside className="h-full pb-32 w-72 max-[960px]:hidden dark:bg-gray-900 overflow-y-auto no-scrollbar max-[600px]:hidden max-[960px]:w- pt-24 p-4 space-y-4 fixed z-20 top-[0] right-0">
       <div
         id="toast-interactive"
         className="w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-400"

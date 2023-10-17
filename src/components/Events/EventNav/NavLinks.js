@@ -5,10 +5,17 @@ import avatar from "../../../../public/avatar.jpg";
 import Image from "next/image";
 import Apps from "./AppsDropDown/Apps";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 const NavLinks = () => {
   const { user } = useSelector((state) => state.user);
-  console.log(user);
+
+  let name_ = "";
+  let email = "";
+  if (user) {
+    name_ = `${user.first_name} ${user.last_name}`;
+    email = user.email;
+  }
 
   return (
     <div className="flex items-center lg:order-2">
@@ -289,10 +296,10 @@ const NavLinks = () => {
       >
         <div className="py-3 px-4">
           <span className="block text-sm font-semibold text-gray-900 dark:text-white">
-            Neil Sims
+            {name_}
           </span>
           <span className="block text-sm text-gray-900 truncate dark:text-white">
-            name@flowbite.com
+            {email}
           </span>
         </div>
         <ul
@@ -300,20 +307,20 @@ const NavLinks = () => {
           aria-labelledby="dropdown"
         >
           <li>
-            <a
-              href="#"
+            <Link
+              href="/user/profile"
               className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
             >
               My profile
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              href="/settings"
               className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
             >
               Account settings
-            </a>
+            </Link>
           </li>
         </ul>
         <ul
@@ -321,7 +328,7 @@ const NavLinks = () => {
           aria-labelledby="dropdown"
         >
           <li>
-            <a
+            <Link
               href="#"
               className="flex items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >
@@ -337,11 +344,11 @@ const NavLinks = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              My likes
-            </a>
+              Invitations
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="#"
               className="flex items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >
@@ -353,11 +360,11 @@ const NavLinks = () => {
               >
                 <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
               </svg>
-              Collections
-            </a>
+              My events
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="#"
               className="flex justify-between items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >
@@ -390,20 +397,7 @@ const NavLinks = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </a>
-          </li>
-        </ul>
-        <ul
-          className="py-1 text-gray-700 dark:text-gray-300"
-          aria-labelledby="dropdown"
-        >
-          <li>
-            <a
-              href="#"
-              className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              Sign out
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

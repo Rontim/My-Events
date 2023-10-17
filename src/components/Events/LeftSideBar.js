@@ -1,18 +1,21 @@
 "use client";
 
 import React from "react";
+import dashboard from "../../../public/icons8-dashboard-50.png";
+import Image from "next/image";
+import Link from "next/link";
 
 const LeftSideBar = () => {
   return (
     <aside
-      className="fixed left-0 top-0 w-64 no-scrollbar h-screen pl-5 pt-24 dark:bg-gray-900 overflow-y-auto max-[960px]:pl-0 max-[960px]:py-16 max-[960px]:w-36  max-[600px]:hidden"
+      className="fixed left-0 flex flex-col justify-center items-center top-0 w-64 no-scrollbar h-screen pl-5 pt-44 dark:bg-gray-900 overflow-y-auto max-[960px]:pl-0 max-[960px]:py-16 max-[960px]:w-36  max-[600px]:hidden"
       aria-label="Sidebar"
     >
       <ul className="space-y-6 ps-6 font-medium max-[960px]:space-y-8 max-[960px]:pt-12 ">
         <li>
-          <a
+          <Link
             href="/event"
-            className="flex items-center max-[960px]:w-10 max-[960px]:h-10 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-purple-900"
+            className="flex items-center max-[960px]:w-12 max-[960px]:h-12 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-black"
           >
             <svg
               className="w-[29px] h-[29px] text-gray-800 dark:text-white"
@@ -30,12 +33,27 @@ const LeftSideBar = () => {
               />
             </svg>
             <span className="ml-3 max-[960px]:hidden">Home</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
+            href="/dashboard"
+            className="flex items-center max-[960px]:w-12 max-[960px]:h-12 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-black"
+          >
+            <Image
+              src={dashboard}
+              className="w-[29px] h-[29px]"
+              alt="dashboard"
+            />
+            <span className="flex-1 ml-3 whitespace-nowrap dark:text-white max-[960px]:hidden">
+              DashBoard
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link
             href="/event/me"
-            className="flex items-center max-[960px]:w-10 max-[960px]:h-10 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-purple-900"
+            className="flex items-center max-[960px]:w-12 max-[960px]:h-12 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-black"
           >
             <svg
               className="w-[29px] h-[29px] text-gray-800 dark:text-white"
@@ -55,12 +73,12 @@ const LeftSideBar = () => {
             <span className="flex-1 ml-3 whitespace-nowrap max-[960px]:hidden">
               My Events
             </span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a
-            href="/notifications"
-            className="flex items-center max-[960px]:w-10 max-[960px]:h-10 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-purple-900"
+          <Link
+            href="/user/notifications"
+            className="flex items-center max-[960px]:w-12 max-[960px]:h-12 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-black"
           >
             <svg
               className="w-[29px] h-[29px] text-gray-800 dark:text-white"
@@ -83,12 +101,12 @@ const LeftSideBar = () => {
             <span className="inline-flex items-center max-[960px]:hidden justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
               3
             </span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a
-            href="/profile"
-            className="flex items-center max-[960px]:w-10 max-[960px]:h-10 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-purple-900"
+          <Link
+            href="/user/profile"
+            className="flex items-center max-[960px]:w-12 max-[960px]:h-12 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-black"
           >
             <svg
               className="w-[29px] h-[29px] text-gray-800 dark:text-white"
@@ -108,13 +126,13 @@ const LeftSideBar = () => {
             <span className="flex-1 ml-3 whitespace-nowrap dark:text-white max-[960px]:hidden">
               Profile
             </span>
-          </a>
+          </Link>
         </li>
 
         <li>
           <a
             href="/event/me/create"
-            className="flex items-center max-[960px]:w-10 max-[960px]:h-10 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-purple-900"
+            className="flex items-center max-[960px]:w-12 max-[960px]:h-12 p-2 text-gray-900 rounded-xl dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  max-[960px]:rounded-full max-[960px]:dark:bg-black"
           >
             <svg
               className="w-[29px] h-[29px] text-gray-800 dark:text-white"
