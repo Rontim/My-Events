@@ -3,6 +3,7 @@
 import EventPost from "@/components/Events/EventPost";
 
 import { events } from "../../../public/dummy/events";
+import RightSideBar from "@/components/Events/RightSideBar";
 
 export default function Event() {
   const eventsList = events.map((event) => (
@@ -17,8 +18,11 @@ export default function Event() {
   ));
 
   return (
-    <div className="mb-0 border-x border-black dark:border-black">
-      <ul className="flex flex-col space-y-0 mt-0">{eventsList}</ul>
-    </div>
+    <>
+      <div className="mb-0 border-x border-black dark:border-black">
+        <ul className="flex flex-col space-y-0 mt-0">{eventsList}</ul>
+      </div>
+      <RightSideBar />
+    </>
   );
 }
