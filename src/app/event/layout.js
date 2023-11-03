@@ -4,7 +4,7 @@ import EventNavBar from "@/components/Events/EventNavBar";
 import LeftSideBar from "@/components/Events/LeftSideBar";
 // import RightSideBar from "@/components/Events/RightSideBar";
 import { useDispatch, useSelector } from "react-redux";
-import { checkAuth } from "@/redux/feature/user/userSlice";
+import { checkAuth } from "@/redux/feature/user/thunk/userThunk";
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();

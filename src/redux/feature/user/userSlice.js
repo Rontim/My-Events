@@ -1,98 +1,7 @@
 "use client";
 
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-export const loaduser = createAsyncThunk("user/load", async (_, thunkAPI) => {
-  try {
-    const res = await fetch("http://127.0.0.1:8000/api/users/me/", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        Authorization: `JWT ${localStorage.getItem("access")}`,
-      },
-    });
-
-    const data = await res.json();
-
-    if (res.status === 200) {
-      return data;
-    } else {
-      return thunkAPI.rejectWithValue(data);
-    }
-  } catch (err) {
-    return thunkAPI.rejectWithValue(err.response.data);
-  }
-});
-
-export const login = createAsyncThunk(
-  "user/login",
-  async ({ email, password }, thunkAPI) => {
-    const body = JSON.stringify({ email, password });
-
-    try {
-      const res = await fetch("http://127.0.0.1:8000/auth/jwt/create/", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body,
-      });
-
-      const data = await res.json();
-
-      if (res.status === 200) {
-        const token = data.access;
-        localStorage.setItem("access", token);
-
-        console.log(data);
-
-        const { dispatch } = thunkAPI;
-
-        dispatch(loaduser());
-
-        return res.status;
-      } else {
-        console.log(data);
-        return thunkAPI.rejectWithValue(data);
-      }
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err);
-    }
-  }
-);
-
-export const checkAuth = createAsyncThunk(
-  "user/verify",
-  async (_, thunkAPI) => {
-    if (typeof window !== "undefined") {
-      if (localStorage.getItem("access")) {
-        const body = JSON.stringify({ token: localStorage.getItem("access") });
-
-        try {
-          const res = await fetch(`http://127.0.0.1:8000/auth/jwt/verify/`, {
-            method: "POST",
-            body,
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-          });
-
-          if (res.status === 200) {
-            const { dispatch } = thunkAPI;
-            dispatch(loaduser());
-          }
-        } catch (err) {
-          console.log(err.response.data);
-          return thunkAPI.rejectWithValue(err.response.data);
-        }
-      } else {
-        return thunkAPI.rejectWithValue("No access token");
-      }
-    }
-  }
-);
+import { createSlice } from "@reduxjs/toolkit";
+import { loaduser, login, checkAuth, registerUser } from "./thunk/userThunk";
 
 const initialState = {
   isAuthenticated: false,
@@ -115,6 +24,18 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(registerUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(registerUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.status = action.payload;
+      })
+      .addCase(registerUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
       .addCase(login.pending, (state) => {
         state.loading = true;
         state.error = null;

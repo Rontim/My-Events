@@ -3,7 +3,7 @@
 import RootFooter from "@/components/Footer";
 import NavBar from "@/components/Navbar";
 import { useDispatch } from "react-redux";
-import { checkAuth } from "@/redux/feature/user/userSlice";
+import { checkAuth } from "@/redux/feature/user/thunk/userThunk";
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();

@@ -7,11 +7,12 @@ import logo from "../../../../../public/logo-removebg-preview.png";
 
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "@/redux/feature/user/userSlice";
+import { login } from "@/redux/feature/user/thunk/userThunk";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
   const dispatch = useDispatch();
+
   const { isAuthenticated } = useSelector((state) => state.user);
   const router = useRouter();
   const [formData, setFormData] = useState({
