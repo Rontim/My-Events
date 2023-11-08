@@ -8,12 +8,15 @@ import logo from "../../../../../public/logo-removebg-preview.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "@/redux/feature/user/thunk/userThunk";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 const Login = () => {
   const dispatch = useDispatch();
 
-  // const { isAuthenticated } = useSelector((state) => state.user);
-  // const router = useRouter();
+  const { isAuthenticated } = useSelector((state) => state.user);
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -33,7 +36,9 @@ const Login = () => {
     dispatch(login({ email, password }));
   };
 
-  // if (isAuthenticated) return router.push("/");
+  if (typeof window !== "undefined") {
+    if (isAuthenticated) return router.replace("/");
+  }
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
