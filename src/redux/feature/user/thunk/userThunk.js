@@ -54,27 +54,29 @@ export const registerUser = createAsyncThunk(
 );
 
 export const loaduser = createAsyncThunk("user/load", async (_, thunkAPI) => {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_DJANGO_BASE_URL}/api/users/me/`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Authorization: `JWT ${localStorage.getItem("access")}`,
-        },
+  if (typeof window !== "undefined") {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_DJANGO_BASE_URL}/api/users/me/`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            Authorization: `JWT ${localStorage.getItem("access")}`,
+          },
+        }
+      );
+
+      const data = await res.json();
+
+      if (res.status === 200) {
+        return data;
+      } else {
+        return thunkAPI.rejectWithValue(data);
       }
-    );
-
-    const data = await res.json();
-
-    if (res.status === 200) {
-      return data;
-    } else {
-      return thunkAPI.rejectWithValue(data);
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data);
     }
-  } catch (err) {
-    return thunkAPI.rejectWithValue(err.response.data);
   }
 });
 
