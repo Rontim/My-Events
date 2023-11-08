@@ -6,15 +6,14 @@ import Image from "next/image";
 import logo from "../../../../../public/logo-removebg-preview.png";
 
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "@/redux/feature/user/thunk/userThunk";
-import { useRouter } from "next/navigation";
 
 const Login = () => {
   const dispatch = useDispatch();
 
-  const { isAuthenticated } = useSelector((state) => state.user);
-  const router = useRouter();
+  // const { isAuthenticated } = useSelector((state) => state.user);
+  // const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -34,7 +33,7 @@ const Login = () => {
     dispatch(login({ email, password }));
   };
 
-  if (isAuthenticated) return router.push("/");
+  // if (isAuthenticated) return router.push("/");
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
