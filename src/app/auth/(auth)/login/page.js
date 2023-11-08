@@ -36,9 +36,7 @@ const Login = () => {
     dispatch(login({ email, password }));
   };
 
-  if (typeof window !== "undefined") {
-    if (isAuthenticated) return router.replace("/");
-  }
+  if (isAuthenticated === true) return router.replace("/");
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
