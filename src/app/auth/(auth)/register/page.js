@@ -41,7 +41,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (handlePasswordValidation) {
-      if (!passMismatch) {
+      if (passMismatch === false) {
         setPassMismatch(!passMismatch);
       }
       dispatch(
