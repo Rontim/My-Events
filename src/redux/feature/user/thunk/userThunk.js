@@ -28,7 +28,7 @@ export const registerUser = createAsyncThunk(
       });
       console.log(body);
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_DJANGO_BASE_URL}/users/`,
+        `${process.env.NEXT_PUBLIC_DJANGO_BASE_URL}/api/users/`,
         {
           method: "POST",
           headers: {
@@ -57,7 +57,7 @@ export const loaduser = createAsyncThunk("user/load", async (_, thunkAPI) => {
   if (typeof window !== "undefined") {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_DJANGO_BASE_URL}/users/me/`,
+        `${process.env.NEXT_PUBLIC_DJANGO_BASE_URL}/api/users/me/`,
         {
           method: "GET",
           headers: {
