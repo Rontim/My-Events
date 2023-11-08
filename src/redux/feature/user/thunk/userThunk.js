@@ -27,14 +27,17 @@ export const registerUser = createAsyncThunk(
         contacts,
       });
       console.log(body);
-      const res = await fetch("http://127.0.0.1:8000/api/users/", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body,
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_DJANGO_BASE_URL}/api/users/`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body,
+        }
+      );
 
       if (res.status == 201) {
         const dispatch = thunkAPI.dispatch;
@@ -52,13 +55,16 @@ export const registerUser = createAsyncThunk(
 
 export const loaduser = createAsyncThunk("user/load", async (_, thunkAPI) => {
   try {
-    const res = await fetch("http://127.0.0.1:8000/api/users/me/", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        Authorization: `JWT ${localStorage.getItem("access")}`,
-      },
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_DJANGO_BASE_URL}/api/users/me/`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `JWT ${localStorage.getItem("access")}`,
+        },
+      }
+    );
 
     const data = await res.json();
 
@@ -78,14 +84,17 @@ export const login = createAsyncThunk(
     const body = JSON.stringify({ email, password });
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/auth/jwt/create/", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body,
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_DJANGO_BASE_URL}/auth/jwt/create/`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body,
+        }
+      );
 
       const data = await res.json();
 
@@ -118,14 +127,17 @@ export const checkAuth = createAsyncThunk(
         const body = JSON.stringify({ token: localStorage.getItem("access") });
 
         try {
-          const res = await fetch(`http://127.0.0.1:8000/auth/jwt/verify/`, {
-            method: "POST",
-            body,
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-          });
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_DJANGO_BASE_URL}/auth/jwt/verify/`,
+            {
+              method: "POST",
+              body,
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+            }
+          );
 
           if (res.status === 200) {
             const { dispatch } = thunkAPI;
