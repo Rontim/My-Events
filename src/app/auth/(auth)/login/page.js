@@ -34,7 +34,7 @@ const Login = () => {
     dispatch(login({ email, password }));
   };
 
-  if (isAuthenticated) return router.replace("/");
+  if (isAuthenticated) return router.push("/");
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
