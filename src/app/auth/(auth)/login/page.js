@@ -8,7 +8,7 @@ import logo from "../../../../../public/logo-removebg-preview.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "@/redux/feature/user/thunk/userThunk";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { useSelector } from "react-redux";
 
 const Login = () => {
@@ -36,7 +36,7 @@ const Login = () => {
     dispatch(login({ email, password }));
   };
 
-  if (isAuthenticated === true) return router.replace("/");
+  if (isAuthenticated === true) return redirect("/");
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
