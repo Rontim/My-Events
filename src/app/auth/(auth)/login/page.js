@@ -8,7 +8,7 @@ import logo from "../../../../../public/logo-removebg-preview.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "@/redux/feature/user/thunk/userThunk";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 
 const Login = () => {
