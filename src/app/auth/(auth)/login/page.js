@@ -15,7 +15,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const { isAuthenticated } = useSelector((state) => state.user);
-  const router = useRouter();
+  // const router = useRouter();
 
   const [formData, setFormData] = useState({
     email: "",
