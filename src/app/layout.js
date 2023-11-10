@@ -4,6 +4,7 @@ import Providers from "@/redux/provider";
 import "./globals.css";
 import { useEffect } from "react";
 import { initFlowbite } from "flowbite";
+import { Toasts } from "@/components/utils";
 
 const Layout = ({ children }) => {
   useEffect(() => {
@@ -14,7 +15,10 @@ const Layout = ({ children }) => {
   return (
     <html className="dark">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Toasts />
+          {children}
+        </Providers>
       </body>
     </html>
   );

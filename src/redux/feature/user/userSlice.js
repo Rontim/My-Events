@@ -15,11 +15,14 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    setAuth: (state) => {
+      state.isAuthenticated = true;
+    },
     logout: (state) => {
-      if (typeof window !== "undefined") {
-        localStorage.clear();
-        state.isAuthenticated = false;
-      }
+      state.isAuthenticated = false;
+    },
+    finishInitialLoad: (state) => {
+      state.loading = false;
     },
   },
   extraReducers: (builder) => {
@@ -73,5 +76,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { logout } = userSlice.actions;
+export const { setAuth, logout, finishInitialLoad } = userSlice.actions;
 export default userSlice.reducer;
