@@ -5,6 +5,7 @@ import CTA from "@/components/Home/CTA";
 
 export const metadata = {
   title: "My Events - Landing",
+  description: "This is the landing page for My Events",
 };
 
 const Home = () => {

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,6 +18,12 @@
   }
 }
 
+@layer base {
+  body {
+    font-family: "Inter", sans-serif;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -30,6 +38,10 @@ body {
   @layer components {
     .no-scrollbar::-webkit-scrollbar {
       display: none;
+    }
+
+    .header-logo {
+      @apply py-5 lg:py-2;
     }
 
     .no-scrollbar {
