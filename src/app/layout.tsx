@@ -11,6 +11,7 @@ type LayoutProps = {
 };
 
 import type { JSX } from "react";
+import ScrollToTop from "@/components/Common/ScrollToTop";
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
           <CheckAuth />
           <Toasts />
           {children}
+          <ScrollToTop />
         </CustomProvider>
       </body>
     </>

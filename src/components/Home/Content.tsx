@@ -1,6 +1,6 @@
 import Image from "next/image";
-import officeLong2 from "../../../public/office-long-2.png";
-import officeLong1 from "../../../public/office-long-1.png";
+import cta1 from "../../../public/cta/cat1.jpg";
+import cta2 from "../../../public/cta/cta2.jpg";
 
 export default function Content() {
   return (
@@ -10,30 +10,27 @@ export default function Content() {
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
             Events Made Effortless
           </h2>
+
           <p className="mb-4">
-            Welcome to the future of event management. We&apos;re not here to
-            reinvent the wheel; we&apos;re here to make event planning and
-            execution a breeze. Our team consists of strategists, designers, and
-            developers—innovators and problem solvers who are committed to
-            simplifying your event experience.
+            Simplifying event management for you. Our agile team of strategists,
+            designers, and developers is dedicated to making your event
+            experience stress-free. Whether it&rsquo;s a small gathering or a
+            large event, we&rsquo;ve got you covered.
           </p>
           <p>
-            We are small enough to be agile and responsive, yet experienced
-            enough to handle events of any size and complexity. With our
-            platform, you&apos;ll have the power to create unforgettable
-            experiences without the usual hassle. Join us today and discover how
-            effortless event management can be.
+            Join us today and unlock the power to create unforgettable
+            experiences effortlessly. Welcome to the future of event planning.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-4 mt-8">
           <Image
             className="w-full rounded-lg"
-            src={officeLong2}
+            src={cta1}
             alt="office content 1"
           />
           <Image
             className="mt-4 w-full lg:mt-10 rounded-lg"
-            src={officeLong1}
+            src={cta2}
             alt="office content 2"
           />
         </div>

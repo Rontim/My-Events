@@ -12,8 +12,8 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <Content />
       <Features />
+      <Content />
       <CTA />
     </div>
   );
