@@ -16,7 +16,6 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
     <>
       <Header />
       {children}
-
       <RootFooter />
     </>
   );

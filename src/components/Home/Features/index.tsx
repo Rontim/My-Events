@@ -1,6 +1,13 @@
+"use client";
+
 import { featuresData } from "./faeturesData";
+import { useInView } from "react-intersection-observer";
 
 const Features = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
   return (
     <>
       <section
@@ -23,7 +30,13 @@ const Features = () => {
 
           <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
             {featuresData.map((feature) => (
-              <div key={feature.id} className="w-full">
+              <div
+                key={feature.id}
+                ref={ref}
+                className={`w-full opacity-0 transform -translate-x-8 transition-all  duration-500 ${
+                  inView ? "opacity-100 translate-x-0" : ""
+                }`}
+              >
                 <div className="wow fadeInUp" data-wow-delay=".15s">
                   <div className="mb-10 flex h-[70px] w-[70px] items-center text-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
                     {feature.icon}
