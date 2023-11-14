@@ -1,20 +1,15 @@
 "use client";
 
 import { featuresData } from "./faeturesData";
-import { useInView } from "react-intersection-observer";
 
 const Features = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-  });
-
   return (
     <>
       <section
         id="features"
         className="py-16 md:py-20 lg:py-28 bg-white dark:bg-black"
       >
-        <div className="container mx-10">
+        <div className="container">
           <div
             className="wow fadeInUp w-full mx-auto text-center mb-[100px] max-w-[570px]"
             data-wow-delay=".1s"
@@ -32,13 +27,10 @@ const Features = () => {
             {featuresData.map((feature) => (
               <div
                 key={feature.id}
-                ref={ref}
-                className={`w-full opacity-0 transform -translate-x-8 transition-all  duration-500 ${
-                  inView ? "opacity-100 translate-x-0" : ""
-                }`}
+                className={`w-full opacity-0 transform -translate-x-8 transition-all  duration-500 ${"opacity-100 translate-x-0"}`}
               >
-                <div className="wow fadeInUp" data-wow-delay=".15s">
-                  <div className="mb-10 flex h-[70px] w-[70px] items-center text-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
+                <div className="wow fadeInUp text-center" data-wow-delay=".15s">
+                  <div className="mb-10 mx-auto flex h-[70px] w-[70px] items-center text-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
                     {feature.icon}
                   </div>
                   <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
