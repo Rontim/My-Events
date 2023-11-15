@@ -1,8 +1,23 @@
 "use client";
 
 import { featuresData } from "./faeturesData";
+import { useEffect, useRef } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 
 const Features = () => {
+  const myRef = useRef(null);
+  const inView = useInView(myRef);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ opacity: 1, x: 0 });
+    } else {
+      controls.start({ opacity: 0, x: 20 });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
+
   return (
     <>
       <section
@@ -23,13 +38,25 @@ const Features = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+          <div
+            ref={myRef}
+            className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3"
+          >
             {featuresData.map((feature) => (
               <div
                 key={feature.id}
                 className={`w-full opacity-0 transform -translate-x-8 transition-all  duration-500 ${"opacity-100 translate-x-0"}`}
               >
-                <div className="wow fadeInUp text-center" data-wow-delay=".15s">
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={controls}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.25 + feature.id * 0.5,
+                  }}
+                  className="wow fadeInUp text-center"
+                  data-wow-delay=".15s"
+                >
                   <div className="mb-10 mx-auto flex h-[70px] w-[70px] items-center text-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
                     {feature.icon}
                   </div>
@@ -39,7 +66,7 @@ const Features = () => {
                   <p className="pr-[10px] text-base font-medium leading-relaxed text-body-color">
                     {feature.paragraph}
                   </p>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>
