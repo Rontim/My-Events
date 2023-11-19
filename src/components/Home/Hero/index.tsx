@@ -97,13 +97,28 @@ const Hero = () => {
               cy="182"
               r="18"
               fill="url(#paint1_radial_25:217)"
-            />
+            >
+              <animateMotion
+                dur="10s"
+                repeatCount="indefinite"
+                path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
+              />
+            </circle>
             <circle
               cx="76.9997"
               cy="288"
               r="34"
               fill="url(#paint2_radial_25:217)"
-            />
+            >
+              <animateMotion
+                dur="12s"
+                repeatCount="indefinite"
+                path="M20,60
+                      m -34,0
+                      a 34,34 0 1,0 68,0
+                      a 34,34 0 1,0 -68,0"
+              />
+            </circle>
             <circle
               cx="325.486"
               cy="302.87"
@@ -248,7 +263,17 @@ const Hero = () => {
               transform="rotate(-13.421 214.505 60.5054)"
               stroke="url(#paint4_linear_25:218)"
             />
-            <circle cx="220" cy="63" r="43" fill="url(#paint5_radial_25:218)" />
+            <circle cx="220" cy="63" r="43" fill="url(#paint5_radial_25:218)">
+              <animateTransform
+                attributeName="transform"
+                attributeType="XML"
+                type="rotate"
+                dur="5s"
+                from="0 216 61"
+                to="360 216 61"
+                repeatCount="indefinite"
+              />
+            </circle>
             <defs>
               <linearGradient
                 id="paint0_linear_25:218"
